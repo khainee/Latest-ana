@@ -12,12 +12,12 @@ jobs:
         name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: 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
+          registry: docker.io
+          username: khainezayye
+          password: Hp206164$
       -
         name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ghcr.io/khainee/kzmodify
+          tags: khainee/kzmodify
