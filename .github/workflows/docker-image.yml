@@ -17,4 +17,4 @@ jobs:
           password: Hp206164$
       -
         name: Build and push
-        run: docker build --secret id=mysecret,src=secret-file . khainezayye/kzmodify && docker push khainezayye/kzmodify
+        run: docker build --secret id=mysecret,src=secret-file -t khainezayye/kzmodify . && docker push khainezayye/kzmodify
