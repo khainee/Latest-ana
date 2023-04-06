@@ -1,0 +1,10 @@
+version: '1'
+
+services:
+  my-service:
+    image: ghcr.io/khainee/kzmodify:latest
+    env:
+      - CR_PAT=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
+      - PORT=8080
+    ports:
+      - 80:8080
