@@ -1,1 +1,3 @@
-FROM ghcr.io/khainee/kzmodify
+FROM khainezayye/kzmodofy:latest
+
+CMD bash start.sh
