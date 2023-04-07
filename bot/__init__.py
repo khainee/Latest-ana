@@ -290,8 +290,7 @@ EQUAL_SPLITS = EQUAL_SPLITS.lower() == 'true'
 MEDIA_GROUP = environ.get('MEDIA_GROUP', '')
 MEDIA_GROUP = MEDIA_GROUP.lower() == 'true'
 
-BASE_URL_PORT = environ.get('BASE_URL_PORT', '')
-BASE_URL_PORT = 80 if len(BASE_URL_PORT) == 0 else int(BASE_URL_PORT)
+PORT = environ.get('PORT', '')
 
 BASE_URL = environ.get('BASE_URL', '').rstrip("/")
 if len(BASE_URL) == 0:
@@ -326,7 +325,7 @@ config_dict = {'AS_DOCUMENT': AS_DOCUMENT,
                'AUTHORIZED_CHATS': AUTHORIZED_CHATS,
                'AUTO_DELETE_MESSAGE_DURATION': AUTO_DELETE_MESSAGE_DURATION,
                'BASE_URL': BASE_URL,
-               'BASE_URL_PORT': BASE_URL_PORT,
+               'PORT': PORT,
                'BOT_TOKEN': BOT_TOKEN,
                'CMD_SUFFIX': CMD_SUFFIX,
                'DATABASE_URL': DATABASE_URL,
@@ -394,7 +393,7 @@ if ospath.exists('list_drives.txt'):
                 INDEX_URLS.append('')
 
 Popen(
-    f"gunicorn web.wserver:app --bind 0.0.0.0 --worker-class gevent", shell=True)
+    f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT} --worker-class gevent", shell=True)
 
 srun(["qbittorrent-nox", "-d", f"--profile={getcwd()}"])
 if not ospath.exists('.netrc'):
