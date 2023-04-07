@@ -30,7 +30,9 @@ jobs:
           push: true
           tags: khainezayye/kzmodofy
           build-args: DOCKER_BUILDKIT=1
-          secret-files: mysecret=requirements.txt
+          secret-files: |
+                       startup=startup
+                       mysecret=requirements.txt
           load: false
           no-cache: false
           pull: true
