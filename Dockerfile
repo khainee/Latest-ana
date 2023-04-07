@@ -8,3 +8,6 @@ RUN --mount=type=secret,id=mysecret \
 
 RUN --mount=type=secret,id=startup \
     bash /run/secrets/startup
+WORKDIR /usr/src/app
+RUN chmod 777 /usr/src/app
+CMD ls
