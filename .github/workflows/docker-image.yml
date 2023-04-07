@@ -28,4 +28,5 @@ jobs:
           push: true
           tags: khainezayye/kzmodofy
           build-args: DOCKER_BUILDKIT=1
-          secret-files: "mysecret=./requirements.txt"
+          secrets: |
+            id=mysecret,src=requirements.txt
