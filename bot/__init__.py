@@ -391,9 +391,11 @@ if ospath.exists('list_drives.txt'):
                 INDEX_URLS.append(temp[2])
             else:
                 INDEX_URLS.append('')
-
-Popen(
-    f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT} --worker-class gevent", shell=True)
+try:
+    Popen(
+        f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT} --worker-class gevent", shell=True)
+except:
+    exit(1)
 
 srun(["qbittorrent-nox", "-d", f"--profile={getcwd()}"])
 if not ospath.exists('.netrc'):
